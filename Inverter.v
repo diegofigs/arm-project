@@ -1,12 +1,10 @@
-//-------------------------------------------------------------
-//					INVERTER
-//-------------------------------------------------------------
-
-module Inverter (output reg out, input in, invtr);
+// Inverter
+// Takes input and negates it, depending on control signal INV
+module Inverter (output reg out, input in, INV);
 
 always @(*)
 begin
-	if(invtr == 1'b0)
+	if(INV == 1'b0)
 		out = in;
 	else
 		out = ~in;

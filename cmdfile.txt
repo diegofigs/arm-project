@@ -1,0 +1,26 @@
+ALU.v
+Branch_extender.v
+Datapath.v
+Decoder.v
+MUX 16 to 1.v
+MUX 32 bits.v
+RAM_256.v
+Register File.v
+Registro 32 bits.v
+Shifters.v
+ImmediateSignExtension.v
+SignExtension2.v
+Incrementer.v
+InputManager.v
+Control Unit.v
+Encoder.v
+Microprocessor.v
+MicrostoreROM.v
+MUX 1 bit 2x1.v
+MUX 4 bits 4x1 2x1.v
+MUX 5 bits 4x1 2x1.v
+MUX 6 bits 4x1 2x1.v
+NextStateSEL.v
+PipelineRegister.v
+Inverter.v
+IncrementerRegister.v

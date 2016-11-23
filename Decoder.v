@@ -5,10 +5,7 @@ module decoder (output reg [15:0] out, input [3:0] in, input enable);
 always @ (in, enable)
 
 begin
-
-
 case (in)
-
 4'b0000: out = 16'b0000000000000001;
 4'b0001: out = 16'b0000000000000010;
 4'b0010: out = 16'b0000000000000100;
@@ -25,18 +22,11 @@ case (in)
 4'b1101: out = 16'b0010000000000000;
 4'b1110: out = 16'b0100000000000000;
 4'b1111: out = 16'b1000000000000000;
-
 endcase 
-
-
     if(!enable)
-    	
     	begin
-       		
        		out = 16'h0000;
-
        	end
-
 end
 
 endmodule

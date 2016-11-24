@@ -1,110 +1,94 @@
-//-----------------------------------------------------------------
-//					INPUT Signals MANAGER
-//-----------------------------------------------------------------
+// Input Signal Manager
+
+// Flags[0] = Negative Flag
+// Flags[1] = Zero Flag
+// Flags[2] = Carry Flag
+// Flags[3] = Overflow Flag
 
 module Input_Manager (output reg out, input [3:0] Flags, cond_Code);
 
-/*
-Flags[0] = Negative Flag
-Flags[1] = Zero Flag
-Flags[2] = Carry Flag
-Flags[3] = Overflow Flag
-*/
+
 always @ (*)
 begin
 	
 	case (cond_Code)
-	//EQ
-	4'b0000: 
+
+	4'b0000: // EQ
 	begin
 		out = Flags[1];
 	end 
-	
-	//NE
-	4'b0001:
+
+	4'b0001: // NE
 	begin
 		out = ~Flags[1];
 	end 
-	
-	//CS/HS
-	4'b0010:
+
+	4'b0010: // CS/HS
 	begin
 		out = Flags[2];
 	end 
 	
-	//CC/LO
-	4'b0011: 
+	4'b0011: // CC/LO
 	begin
 		out = ~Flags[2];
 	end 
 	
-	//MI
-	4'b0100:
+	4'b0100: // MI
 	begin
 		out = Flags[0];
 	end 
 	
-	//PL
-	4'b0101:
+	4'b0101: // PL
 	begin
 		out = ~Flags[0];
 	end 
 	
-	//VS
-	4'b0110:
+	4'b0110: // VS
 	begin
 		out = Flags[3];
 	end 
 	
-	//VC
-	4'b0111:
+	4'b0111: // VC
 	begin
 		out = ~Flags[3];
 	end 
 	
-	//HI
-	4'b1000:
+	4'b1000: // HI
 	begin
 		out = Flags[2] & ~Flags[1];
 	end 
 	
-	//LS
-	4'b1001:
+	4'b1001: // LS
 	begin
 		out = ~Flags[2] | Flags[1];
 	end 
 	
-	//GE
-	4'b1010:
+	4'b1010: // GE
 	begin
 		out = ~(Flags[0] ^ Flags[3]);
 	end 
 	
-	//LT
-	4'b1011:
+	4'b1011: // LT
 	begin
 		out = Flags[0] ^ Flags[3];
 	end 
 	
-	//GT
-	4'b1100:
+	4'b1100: // GT
 	begin
 		out = ~(Flags[0] ^ Flags[3]) & (~Flags[1]);
 	end 
 	
-	//LE
-	4'b1101:
+	4'b1101: // LE
 	begin
 		out = (Flags[0] ^ Flags[3]) | (Flags[1]);
 	end 
 	
-	//AL
-	4'b1110:
+	4'b1110: // AL
 	begin
 		out = 1'b1;
 	end 
 	
-	//**NOT USED**
+	// Spare
 	4'b1111:
 	begin
 	end 

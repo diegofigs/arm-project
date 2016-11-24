@@ -1,12 +1,5 @@
-//--------------------------------------------------------------------
-//					MICROSTORE (ROM)
-//--------------------------------------------------------------------
-
+// MICROSTORE (ROM)
 module Microstore_ROM (output reg[54:0] out, input [5:0] index);
-
-initial begin
-	//index =  6'b000001;
-end
 
 always @(index)
 begin

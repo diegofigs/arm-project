@@ -1,8 +1,5 @@
 //Shifter Module
-  
 module Shifter (output reg [31:0] result, output reg C_flag, input [31:0] data, input [1:0] shift, input [31:0] shiftNum , input enable);
-
-//Immediate shifter: shifter_operand = data LSR (2*shiftNum)
 
 reg [31:0] tempNum;
 reg [31:0] tempData;
@@ -21,8 +18,7 @@ if (enable==1'b0)
 
 			case(shift)
 
-				2'b00: 
-				//[LSL] 
+				2'b00: // LSL 
 				begin
 					for(i = 0; i < tempNum; i = i+1)
 					begin
@@ -31,8 +27,7 @@ if (enable==1'b0)
 					end
 				end
 
-				2'b01:
-				//LSR
+				2'b01: // LSR				
 				begin
 					for(i = 0; i < tempNum; i = i+1)
 					begin
@@ -41,8 +36,7 @@ if (enable==1'b0)
 					end
 				end
 
-				2'b10:
-				//ASR
+				2'b10: // ASR				
 				begin
 					for(i = 0; i < tempNum; i = i+1)
 						begin
@@ -51,8 +45,7 @@ if (enable==1'b0)
 						end
 				end
 
-				2'b11:
-				//ROR
+				2'b11: // ROR				
 				begin
 					for(i = 0; i < tempNum; i = i+1)
 						begin
